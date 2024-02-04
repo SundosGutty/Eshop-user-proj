@@ -1,0 +1,56 @@
+<div class="cart-page">
+  <div class="page-contai">
+    <div class="col-8">
+      <div class="mb-3 mt-2">
+        <button class="btn btn-primary" (click)="backToShop()">
+          <i class="fa fa-arrow-left"></i> Continue shopping
+        </button>
+      </div>
+      <div>
+        <h4>My Cart: {{ cartCount }} Item(s)</h4>
+      </div>
+      <div class="cart-shipping mb-5">
+        Shipping after the payment, Delivery time: 1 to 4 working days
+      </div>
+      <div class="cart-item mb-5" *ngFor="let cartItem of cartItemsDetailed">
+        <div class="row">
+          <div class="cart-item-image">
+            <img [src]="cartItem.product.image" [alt]="cartItem.product.name" class="img-fluid" />
+          </div>
+          <div class="col-7">
+            <div class="cart-item-name">{{ cartItem.product.name }}</div>
+            <div class="cart-item-price">{{ cartItem.product.price | currency }}</div>
+            <div class="cart-item-remove">
+              <button class="btn btn-danger" (click)="deleteCartItem(cartItem)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group cart-item-quantity">
+              <label for="{{ cartItem.product.id }}">Quantity:</label>
+              <input
+                type="number"
+                class="form-control"
+                [id]="cartItem.product.id"
+                [min]="1"
+                [max]="100"
+                [(ngModel)]="cartItem.quantity"
+                (ngModelChange)="updateCartItemQuantity($event, cartItem)"
+              />
+            </div>
+            <div class="cart-item-subtotal">
+              Subtotal:
+              <span class="cart-item-subtotal-value">
+                {{ cartItem.product.price * cartItem.quantity | currency }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <orders-order-summary></orders-order-summary>
+    </div>
+  </div>
+</div>

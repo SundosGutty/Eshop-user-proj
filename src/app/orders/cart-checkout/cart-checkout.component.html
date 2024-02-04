@@ -1,0 +1,19 @@
+<div class="checkout-page">
+    <div>
+      <button (click)="backToCart()"  class="btn btn-danger"> <i class="fa fa-arrow-left"></i>Back to cart</button>
+    </div>
+    <div class="p-grid checkout-form">
+      <div class="p-col-8">
+        <div class="mt-4">
+         <admin-form-base-template [formGroup]="checkoutFormGroup" [formFields]="formFields"></admin-form-base-template> 
+        </div>
+      </div>
+      <div class="p-col-4">
+       <orders-order-summary></orders-order-summary> 
+        <div class="checkout-button">
+          <button class="btn btn-danger" (click)="placeOrder()">Place-Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

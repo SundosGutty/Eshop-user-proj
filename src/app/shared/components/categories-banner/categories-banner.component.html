@@ -1,0 +1,22 @@
+<div class="categories-banner">
+  <h4>Categories</h4>
+  <div class="row">
+    <div class="col-md-2 p-1" *ngFor="let category of categories">
+      <a class="category-link" [routerLink]="'/products/category/' + category.id">
+        <div
+          class="category card text-center"
+          [style.background]="category.color"
+        >
+          <div class="category-icon">
+            <i class="fa-solid fa-{{ category.icon }}"></i> 
+          </div>
+          <div class="category-name">
+            {{ category.name }}
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+

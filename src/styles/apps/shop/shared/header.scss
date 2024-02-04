@@ -1,0 +1,36 @@
+header {
+  margin-bottom: 25px;
+  .logo {
+    img {
+      width: 160px;
+    }
+  }
+  .tools {   
+    flex-wrap: nowrap; 
+    .fa {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+@media (max-width: 590px){
+  .logo {
+    img{
+      width: 100px !important;
+    }
+  }
+  .tools{
+    .fa, .fa-solid{
+      font-size: 0.7rem !important;
+    }
+  }
+}
+
+@media (max-width: 756px){
+  .tools{
+    margin-right: 21px;
+  }
+
+}

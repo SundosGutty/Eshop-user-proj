@@ -1,0 +1,21 @@
+<header>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="col-3">
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="logo" />
+      </div>
+    </div>
+    <div class="col-3 d-flex align-items-center">
+      <ngshop-nav></ngshop-nav>
+    </div>
+    <div class="col-1 tools d-flex align-items-center">
+      <i class="fa fa-user text-secondary fs-5" (click)="logoutUser()"></i>
+      <orders-cart-icon></orders-cart-icon>
+    </div>
+  </div>
+</header>
+
+<admin-confirm-dialog [content]="dialogContent" *ngIf="dialogContent" (userResponded)="shouldDelete($event)"></admin-confirm-dialog>
+
+
+

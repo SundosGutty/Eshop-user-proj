@@ -1,0 +1,59 @@
+<div class="product-page" *ngIf="product">
+  <div class="row">
+    <div class="col-md-6">
+      <ui-gallery [images]="productImages"></ui-gallery>
+    </div>
+    <div class="col-md-6 product">
+      <h2 class="product-name">{{ product.name }}</h2>
+      <p class="product-desc">
+        {{ product.description }}
+      </p>
+      <div class="product-rating">
+        <div class="star-rating">
+          <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" class="fa-solid fa-star" [ngClass]="{ 'yellow': i < product.rating, 'yellow-outline': i >= product.rating }">
+          </i>
+        </div>
+      </div>
+      <div class="product-price">
+        {{ product.price | currency }}
+        <span class="price-before">{{ (product.price + 18) | currency }}</span>
+      </div>
+      <div class="product-quantity">
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input
+            type="number"
+            [(ngModel)]="quantity"
+            class="form-control"
+            id="quantity"
+            min="1"
+            max="100"
+          />
+        </div>
+      </div>
+      <div class="product-actions">
+        <button
+          type="button"
+          class="btn btn-primary rounded-pill mr-2"
+        >
+          Buy Now
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary rounded-pill"
+          (click)="addProductToCart()"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row product-rich-desc">
+    <div class="col-md-12">
+      <div [innerHTML]="product.richDescription"></div>
+    </div>
+  </div>
+</div>
+
+
+

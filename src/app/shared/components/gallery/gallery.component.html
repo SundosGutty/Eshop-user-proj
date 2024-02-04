@@ -1,0 +1,19 @@
+<div class="gallery" *ngIf="hasImages">
+  <div class="main-image">
+    <img [src]="'../../../../assets/images/products/' + selectedImageUrl" alt="" class="img-fluid" />
+  </div>
+  <div class="images">
+      <ul>
+        <li
+          *ngFor="let imageUrl of images"
+          (click)="changeSelectedImage(imageUrl)"
+          style="cursor: pointer;"
+        >
+          <img [src]="'../../../../assets/images/products/' + imageUrl" alt="product image" class="img-thumbnail" />
+        </li>
+      </ul>
+  </div>
+</div>
+
+
+\

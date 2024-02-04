@@ -1,0 +1,38 @@
+.nav {
+  li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 15px;
+
+    a {
+      color: var(--surface-500);
+      cursor: pointer;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.notification-badge{
+  transform: translate(-50%,-50%);
+  left: 100%;
+  top: 0px;
+}
+
+
+@media (max-width: 590px) {
+  .nav{
+    flex-wrap: nowrap;
+    li{
+      a{
+        font-size: 10px;
+      }
+    }
+  }
+  .notification-badge {
+   transform: translate(-89%,-13%)!important;
+   left: 0פס !important;
+  }
+}
+
